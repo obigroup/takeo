@@ -821,8 +821,8 @@
                 
                 <div class="calculator-form">
                     <div class="form-group">
-                        <label for="orders">Nombre d'appels par jour :</label>
-                        <input type="number" id="orders" value="30" min="1">
+                        <label for="nbcalls">Nombre d'appels par jour :</label>
+                        <input type="number" id="nbcalls" value="30" min="1">
                     </div>
                     
                     <div class="form-group">
@@ -912,30 +912,38 @@
 
     <script>
         function calculateLiberation() {
-            const orders = parseInt(document.getElementById('orders').value);
+            const nbcalls = parseInt(document.getElementById('nbcalls').value);
             const callTime = parseInt(document.getElementById('call-time').value);
             const days = parseInt(document.getElementById('days').value);
             
             // Calcul du temps libéré
-            const dailyMinutes = orders * callTime;
+            const dailyMinutes = nbcalls * callTime;
             const weeklyMinutes = dailyMinutes * days;
-            const monthlyMinutes = weeklyMinutes * 4.33; // moyenne mensuelle
-            const monthlyHours = Math.round(monthlyMinutes / 60);
+            const monthlyMinutes = weeklyMinutes * 4.33; // moyenne mensuelle (52 semaines / 12 mois)
+            const monthlyHours = Math.round((monthlyMinutes / 60) * 10) / 10; // Arrondi à 1 décimale
             
             // Calcul des interruptions évitées
-            const dailyInterruptions = orders;
-            const monthlyInterruptions = dailyInterruptions * days * 4.33;
+            const dailyInterruptions = nbcalls;
+            const monthlyInterruptions = Math.round(dailyInterruptions * days * 4.33);
             
             // Estimation du CA supplémentaire (tickets moyens de 25€, 25% d'augmentation)
-            const additionalRevenue = Math.round(orders * 0.25 * 25 * days * 4.33);
+            const additionalRevenue = Math.round(nbcalls * 0.25 * 25 * days * 4.33);
             
-            document.getElementById('timeResult').textContent = `⏰ ${monthlyHours}h libérées chaque mois (soit ${Math.round(monthlyHours/8)} jours de travail !)`;
-            document.getElementById('focusResult').textContent = `🎯 ${Math.round(monthlyInterruptions)} interruptions évitées par mois`;
-            document.getElementById('revenueResult').textContent = `💰 +${additionalRevenue.toLocaleString()}€ de CA mensuel estimé`;
+            // Calcul plus précis des jours de travail libérés
+            const workDaysLiberated = Math.round((monthlyHours / 8) * 10) / 10; // Arrondi à 1 décimale
+            
+            // Affichage des résultats
+            document.getElementById('timeResult').textContent = 
+                `⏰ ${monthlyHours}h libérées chaque mois (soit ${workDaysLiberated} jours de travail)`;
+            
+            document.getElementById('focusResult').textContent = 
+                `🎯 ${monthlyInterruptions} interruptions évitées par mois`;
+            
+            document.getElementById('revenueResult').textContent = 
+                `💰 +${additionalRevenue.toLocaleString()}€ de CA mensuel estimé`;
             
             document.getElementById('result').style.display = 'block';
         }
-
         // Animation au scroll
         function animateOnScroll() {
             const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item, .benefit-item');
