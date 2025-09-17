@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAKEO - Agent Vocal IA pour Restaurants</title>
+    <title>TAKEO - Plus jamais décrocher le téléphone</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -91,6 +91,23 @@
             z-index: -1;
         }
 
+        .liberation-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
         .hero h1 {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
@@ -101,11 +118,59 @@
             background-clip: text;
         }
 
+        .hero-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            font-weight: 500;
+        }
+
+        .hero-subtext {
+            font-size: 1.1rem;
             color: #b0b0b0;
             max-width: 600px;
             margin: 0 auto 40px;
+        }
+
+        .pain-points {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px auto 40px;
+            max-width: 600px;
+        }
+
+        .pain-points h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .pain-points ul {
+            list-style: none;
+            color: #ffcccc;
+        }
+
+        .pain-points li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .pain-points li::before {
+            content: "❌";
+            position: absolute;
+            left: 0;
         }
 
         .cta-buttons {
@@ -119,7 +184,7 @@
         .cta-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 16px 32px;
+            padding: 18px 35px;
             border: none;
             border-radius: 30px;
             font-size: 1.1rem;
@@ -133,7 +198,7 @@
         .cta-secondary {
             background: transparent;
             color: white;
-            padding: 16px 32px;
+            padding: 18px 35px;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 30px;
             font-size: 1.1rem;
@@ -183,6 +248,52 @@
         .phone-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+            background: rgba(76, 175, 80, 0.05);
+        }
+
+        .solution-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .solution h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .solution-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .benefit-item h4 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .benefit-item p {
+            color: #e0e0e0;
+            font-size: 0.95rem;
         }
 
         /* Stats Section */
@@ -266,6 +377,31 @@
         .feature-card p {
             color: #b0b0b0;
             line-height: 1.6;
+        }
+
+        /* Applications Section */
+        .applications {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 80px 0;
+        }
+
+        .applications h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .applications-subtitle {
+            text-align: center;
+            color: #b0b0b0;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Testimonials */
@@ -483,65 +619,67 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">TAKEO</div>
-                <a href="#contact" class="nav-button">Parler à un expert</a>
+                <a href="#contact" class="nav-button">✨ Libérez-moi du téléphone</a>
             </div>
         </div>
     </header>
 
     <section id="demo-section" class="hero">
         <div class="container">
-            <h1>Ne ratez plus jamais une commande</h1>
-            <p>TAKEO transforme chaque appel en commande / réservation !<br /> L'agent vocal IA disponible 24h/24, multilingue et patient avec vos clients.</p>
+            <div class="liberation-badge">✨ LIBÉRATION TOTALE ✨</div>
+            
+            <h1>Plus jamais <span class="hero-highlight">décrocher le téléphone</span> pendant le service</h1>
+            
+            <p>TAKEO gère automatiquement 100% de vos appels : commandes, réservations, informations.<br />
+            <strong>Concentrez-vous enfin sur votre cuisine et vos clients en salle !</strong></p>
+            
+            <div class="pain-points">
+                <h3>🔥 Stop aux interruptions qui cassent votre service :</h3>
+                <ul>
+                    <li>Téléphone qui sonne en plein coup de feu</li>
+                    <li>Obligation d'arrêter de cuisiner pour répondre</li>
+                    <li>Clients en salle qui attendent pendant que vous prenez une commande</li>
+                    <li>Stress permanent de rater des appels</li>
+                </ul>
+            </div>
+
+            <div class="hero-subtext">
+                Avec TAKEO, votre téléphone devient silencieux. Tout est géré automatiquement, 24h/24, dans toutes les langues.
+            </div>
             
             <div class="cta-buttons">
-                <a href="#calculator" class="cta-primary">Calculer mes économies</a>
-                <a href="#contact" class="cta-secondary">Parler à un expert</a>
+                <a href="#calculator" class="cta-primary">🚀 Je veux ma liberté</a>
             </div>
-
-            <div class="demo-section">
-                <h3>🎧 Testez TAKEO maintenant</h3>
-                <p>Appelez le KotoKoto et découvrez notre agent vocal en action :</p>
-                <a href="tel:+33450690967" class="phone-button">📞 04 50 69 09 67</a>
-            </div>
+        </div>
     </section>
 
-    <section class="features" id="applications" style="background: rgba(255, 255, 255, 0.02);">
+    <section class="solution">
         <div class="container">
-            <h2>Toutes les applications TAKEO</h2>
-            <p style="text-align: center; color: #b0b0b0; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Un agent vocal polyvalent qui s'adapte à tous vos besoins opérationnels
-            </p>
-            
-            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-                <div class="feature-card">
-                    <div class="feature-icon">🛒</div>
-                    <h3>Prise de commandes avancée</h3>
-                    <div style="text-align: left; color: #e0e0e0; line-height: 1.8;">
-                        • <strong>Call & Collect</strong> : Prise de commande et retrait<br>
-                        • <strong>Vente additionnelle</strong> : Suggestions automatiques d'accompagnements<br>
-                        • <strong>Conseils personnalisés</strong> : Recommandations selon les préférences
-                    </div>
-                </div>
+            <div class="solution-content">
+                <h2>🌟 Votre nouvelle réalité</h2>
+                <p style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 40px;">
+                    Imaginez un service où vous n'êtes <strong>JAMAIS</strong> interrompu par le téléphone
+                </p>
 
-                <div class="feature-card">
-                    <div class="feature-icon">📋</div>
-                    <h3>Réservations et rendez-vous</h3>
-                    <div style="text-align: left; color: #e0e0e0; line-height: 1.8;">
-                        • <strong>Réservations de tables</strong> : Gestion complète du planning<br>
-                        • <strong>Prise de rendez-vous</strong> : Services spécialisés, consultations<br>
-                        • <strong>Événements privés</strong> : Anniversaires, réceptions d'entreprise<br>
-                        • <strong>Confirmations automatiques</strong> : SMS et emails de rappel ou de paiement
+                <div class="solution-benefits">
+                    <div class="benefit-item">
+                        <h4>🍳 Cuisine en continu</h4>
+                        <p>Plus d'interruption en pleine préparation. Vos plats sortent à l'heure, vos clients sont satisfaits.</p>
                     </div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">ℹ️</div>
-                    <h3>Service client et informations</h3>
-                    <div style="text-align: left; color: #e0e0e0; line-height: 1.8;">
-                        • <strong>Informations pratiques</strong> : Horaires, adresse, itinéraire<br>
-                        • <strong>Carte et allergènes</strong> : Présentation détaillée des plats<br>
-                        • <strong>Menus du jour</strong> : Suggestions quotidiennes, promotions<br>
-                        • <strong>Expertise complète</strong> : Renseignements sur tous vos services
+                    
+                    <div class="benefit-item">
+                        <h4>👥 Service en salle premium</h4>
+                        <p>Votre équipe se consacre 100% à l'accueil et au service. Fini les clients qui attendent.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h4>😌 Sérénité totale</h4>
+                        <p>Travaillez l'esprit tranquille. Chaque appel est traité parfaitement, même aux heures de pointe.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h4>💰 Zéro perte de CA</h4>
+                        <p>Toutes les commandes sont prises, même quand vous êtes débordé. Votre chiffre d'affaires explose.</p>
                     </div>
                 </div>
             </div>
@@ -552,20 +690,64 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>+25%</h3>
-                    <p>Augmentation des commandes</p>
+                    <h3>0</h3>
+                    <p>Interruption de service</p>
                 </div>
                 <div class="stat-item">
                     <h3>24/7</h3>
-                    <p>Disponibilité continue</p>
+                    <p>Prise d'appels automatique</p>
                 </div>
                 <div class="stat-item">
                     <h3>∞</h3>
                     <p>Appels simultanés</p>
                 </div>
                 <div class="stat-item">
-                    <h3>-80%</h3>
-                    <p>Réduction des erreurs</p>
+                    <h3>+25%</h3>
+                    <p>Chiffre d'affaires</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="applications" id="applications">
+        <div class="container">
+            <h2>TAKEO gère tout automatiquement</h2>
+            <p class="applications-subtitle">
+                Votre agent vocal intelligent s'occupe de tous vos appels pendant que vous vous concentrez sur l'essentiel
+            </p>
+            
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Commandes automatisées</h3>
+                    <div style="text-align: left; color: #e0e0e0; line-height: 1.8;">
+                        • <strong>Call & Collect</strong> : Prise de commande et retrait<br>
+                        • <strong>Vente additionnelle</strong> : Suggestions automatiques<br>
+                        • <strong>Conseils personnalisés</strong> : Recommandations selon les préférences<br>
+                        • <strong>Paiement immédiat</strong> : Liens sécurisés par SMS
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Réservations intelligentes</h3>
+                    <div style="text-align: left; color: #e0e0e0; line-height: 1.8;">
+                        • <strong>Réservations de tables</strong> : Gestion complète du planning<br>
+                        • <strong>Événements privés</strong> : Anniversaires, groupes<br>
+                        • <strong>Confirmations automatiques</strong> : SMS et emails<br>
+                        • <strong>Modifications</strong> : Annulations et reports gérés
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">ℹ️</div>
+                    <h3>Informations & Support</h3>
+                    <div style="text-align: left; color: #e0e0e0; line-height: 1.8;">
+                        • <strong>Informations pratiques</strong> : Horaires, adresse, itinéraire<br>
+                        • <strong>Carte détaillée</strong> : Plats, allergènes, prix<br>
+                        • <strong>Menus du jour</strong> : Suggestions et promotions<br>
+                        • <strong>Expertise complète</strong> : Tous vos services
+                    </div>
                 </div>
             </div>
         </div>
@@ -573,42 +755,42 @@
 
     <section class="features" id="features">
         <div class="container">
-            <h2>Pourquoi choisir TAKEO ?</h2>
+            <h2>Comment TAKEO vous libère</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
-                    <h3>Prise de commandes intelligente</h3>
-                    <p>Compréhension parfaite de votre carte, suggestions personnalisées et gestion des modifications en temps réel.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📅</div>
-                    <h3>Réservations automatiques</h3>
-                    <p>Gestion complète de votre planning avec synchronisation agenda et confirmations automatiques par SMS.</p>
+                    <h3>Intelligence totale</h3>
+                    <p>Comprend parfaitement votre carte, explique les plats, gère les modifications. Plus intelligent qu'un serveur.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🌐</div>
-                    <h3>Multilingue</h3>
-                    <p>Communication parfaite dans toutes les langues avec une diction claire et professionnelle pour tous vos clients.</p>
+                    <h3>Multilingue natif</h3>
+                    <p>Parle parfaitement français, anglais, italien... Vos clients étrangers sont choyés comme jamais.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Milliers d'appels simultanés</h3>
-                    <p>Fini les lignes occupées ! TAKEO peut gérer un nombre illimité d'appels en même temps.</p>
+                    <h3>Capacité illimitée</h3>
+                    <p>Traite 1000 appels simultanés sans broncher. Fini les lignes occupées, même pendant les pics.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🔌</div>
-                    <h3>Intégration complète</h3>
-                    <p>Connexion avec votre caisse, système de réservation, et envoi automatique des commandes par SMS ou e-mail.</p>
+                    <div class="feature-icon">🔗</div>
+                    <h3>Intégration magique</h3>
+                    <p>Se connecte à votre caisse et planning. Les commandes arrivent directement, prêtes à être préparées.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">💳</div>
                     <h3>Paiement anticipé</h3>
-                    <p>Sécurisez vos commandes à emporter avec des liens de paiement automatiques envoyés par SMS.</p>
+                    <p>Envoie automatiquement les liens de paiement par SMS. Vos commandes sont payées avant même d'être préparées.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Fiabilité absolue</h3>
+                    <p>Ne tombe jamais malade, ne prend jamais de congés, ne fait jamais d'erreurs. Votre service parfait 365j/an.</p>
                 </div>
             </div>
         </div>
@@ -616,86 +798,79 @@
 
     <section class="testimonials">
         <div class="container">
-            <h2>Ils nous font confiance</h2>
+            <h2>Ils ont retrouvé leur liberté</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p>"Depuis TAKEO, nous ne perdons plus aucune commande aux heures de pointe. Nos clients apprécient la clarté et la disponibilité 24h/24."</p>
+                    <p>"Plus jamais je ne décroche le téléphone pendant le service ! Mes équipes se concentrent enfin sur la cuisine et l'accueil. Le stress a complètement disparu."</p>
                     <div class="testimonial-author">— Le KotoKoto, Annecy</div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <p>"L'intégration avec notre système de caisse a été parfaite. TAKEO comprend parfaitement nos spécialités japonaises et les explique mieux que nous !"</p>
+                    <p>"TAKEO comprend mieux nos spécialités japonaises que nos serveurs ! Et surtout, nous ne ratons plus aucune commande aux heures de pointe."</p>
                     <div class="testimonial-author">— Yatta Ramen</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="calculator" id="calculator">
+    <section class="calculator" id="calculator" style="padding: 60px 0;">
         <div class="container">
             <div class="calculator-content">
-                <h2>Calculez vos économies</h2>
-                <p style="margin-bottom: 30px; color: #b0b0b0;">Découvrez combien TAKEO peut vous faire économiser</p>
+                <h2>Calculez votre liberté</h2>
+                <p style="margin-bottom: 30px; color: #b0b0b0;">Découvrez combien d'heures TAKEO vous libère chaque mois</p>
                 
                 <div class="calculator-form">
                     <div class="form-group">
-                        <label for="orders">Nombre de commandes par jour :</label>
-                        <input type="number" id="orders" value="50" min="1">
+                        <label for="orders">Nombre d'appels par jour :</label>
+                        <input type="number" id="orders" value="30" min="1">
                     </div>
                     
                     <div class="form-group">
-                        <label for="salary">Salaire mensuel d'un employé (€) :</label>
-                        <input type="number" id="salary" value="2000" min="1000">
+                        <label for="call-time">Durée moyenne d'un appel (minutes) :</label>
+                        <input type="number" id="call-time" value="3" min="1" max="10">
                     </div>
                     
                     <div class="form-group">
-                        <label for="hours">Heures dédiées aux appels par jour :</label>
-                        <input type="number" id="hours" value="4" min="1" max="24">
+                        <label for="days">Jours d'ouverture par semaine :</label>
+                        <input type="number" id="days" value="6" min="1" max="7">
                     </div>
                     
-                    <button class="calculate-btn" onclick="calculateSavings()">Calculer mes économies</button>
+                    <button class="calculate-btn" onclick="calculateLiberation()">Calculer ma libération</button>
                     
                     <div class="result" id="result">
-                        <h4>💰 Vos économies avec TAKEO :</h4>
-                        <p id="monthlyResult"></p>
-                        <p id="yearlyResult"></p>
-                        <p id="additionalOrders"></p>
+                        <h4>🕐 Votre liberté retrouvée :</h4>
+                        <p id="timeResult"></p>
+                        <p id="focusResult"></p>
+                        <p id="revenueResult"></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features" id="contact" style="background: rgba(102, 126, 234, 0.05);">
+    <section class="features" id="contact" style="background: rgba(102, 126, 234, 0.05); padding: 60px 0;">
         <div class="container">
             <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
-                <h2>Prêt à transformer votre entreprise ?</h2>
-                <p style="color: #b0b0b0; margin-bottom: 40px;">Nos experts vous accompagnent dans la mise en place de TAKEO. Installation rapide, formation incluse et support technique dédié.</p>
+                <h2>Récupérez votre liberté dès maintenant</h2>
+                <p style="color: #b0b0b0; margin-bottom: 40px; font-size: 1.2rem;">
+                    <strong>Installation en 48h • Formation incluse • Support 24/7</strong><br>
+                    Nos experts configurent TAKEO selon vos besoins. Plus jamais d'interruption téléphonique.
+                </p>
                 
                 <div style="background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 15px;">
-                    <h3 style="color: #667eea; margin-bottom: 20px;">📞 Prenez rendez-vous</h3>
-                    <p style="margin-bottom: 30px;">Discutons de vos besoins et découvrez comment TAKEO peut révolutionner votre prise de commandes / réservations.</p>
+                    <h3 style="color: #667eea; margin-bottom: 20px;">📝 Obtenez votre devis personnalisé</h3>
+                    <p style="margin-bottom: 30px;">Remplissez le formulaire ci-dessous et recevez une proposition sur mesure sous 24h. Zéro engagement.</p>
                     
-                    <!-- Cal inline embed code begins -->
-                    <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-30min"></div>
-                    <script type="text/javascript">
-                    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-                    Cal("init", "30min", {origin:"https://app.cal.com"});
+                    <div style="max-width: 500px; margin: 0 auto;">
+                        <iframe data-tally-src="https://tally.so/embed/m6qoy5?alignLeft=1&transparentBackground=1&hideTitle=1&dynamicHeight=1" loading="lazy" width="100%" height="482" frameborder="0" marginheight="0" marginwidth="0" title="null"></iframe>
+                        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+                    </div>
 
-                    Cal.ns["30min"]("inline", {
-                        elementOrSelector:"#my-cal-inline-30min",
-                        config: {"layout":"month_view"},
-                        calLink: "takeo/30min",
-                    });
-
-                    Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-                    </script>
-                    <!-- Cal inline embed code ends -->
-                    
                     <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
                         <p style="color: #888; font-size: 0.9rem;">
-                            <strong>Installation :</strong> Sur mesure selon vos besoins<br>
-                            <strong>Support :</strong> Lundi au vendredi 9h-18h + urgences 24h/24
+                            ✅ <strong>Installation personnalisée</strong> : Configuration sur mesure<br>
+                            ✅ <strong>Formation complète</strong> : Votre équipe maîtrise tout<br>
+                            ✅ <strong>Support premium</strong> : Assistance 9h-18h + urgences 24/7
                         </p>
                     </div>
                 </div>
@@ -708,14 +883,13 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>TAKEO</h3>
-                    <p>L'agent vocal IA qui révolutionne la prise de commandes et de réservations.</p>
+                    <p>L'agent vocal IA qui libère les restaurateurs du téléphone pour qu'ils se concentrent sur leur passion.</p>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Produit</h3>
-                    <a href="#features">Fonctionnalités</a>
+                    <h3>Solution</h3>
+                    <a href="#features">Comment ça marche</a>
                     <a href="#calculator">Calculateur</a>
-                    <a href="#demo-section">Démo live</a>
                 </div>
                 
                 <div class="footer-section">
@@ -737,35 +911,34 @@
     </footer>
 
     <script>
-        function calculateSavings() {
+        function calculateLiberation() {
             const orders = parseInt(document.getElementById('orders').value);
-            const salary = parseInt(document.getElementById('salary').value);
-            const hours = parseInt(document.getElementById('hours').value);
+            const callTime = parseInt(document.getElementById('call-time').value);
+            const days = parseInt(document.getElementById('days').value);
             
-            // Prix TAKEO estimé (à ajuster selon votre pricing)
-            const takeoMonthlyPrice = 60;
+            // Calcul du temps libéré
+            const dailyMinutes = orders * callTime;
+            const weeklyMinutes = dailyMinutes * days;
+            const monthlyMinutes = weeklyMinutes * 4.33; // moyenne mensuelle
+            const monthlyHours = Math.round(monthlyMinutes / 60);
             
-            // Calcul du coût employé pour les heures dédiées aux appels
-            const hourlyWage = salary / (35 * 4.33); // 35h/semaine
-            const monthlyCallCost = hourlyWage * hours * 30;
+            // Calcul des interruptions évitées
+            const dailyInterruptions = orders;
+            const monthlyInterruptions = dailyInterruptions * days * 4.33;
             
-            // Économies mensuelles
-            const monthlySavings = monthlyCallCost - takeoMonthlyPrice;
-            const yearlySavings = monthlySavings * 12;
+            // Estimation du CA supplémentaire (tickets moyens de 25€, 25% d'augmentation)
+            const additionalRevenue = Math.round(orders * 0.25 * 25 * days * 4.33);
             
-            // Commandes supplémentaires estimées (35% d'augmentation)
-            const additionalOrders = Math.round(orders * 0.25 * 20); // par mois
-            
-            document.getElementById('monthlyResult').textContent = `Économie mensuelle : ${monthlySavings.toFixed(0)}€`;
-            document.getElementById('yearlyResult').textContent = `Économie annuelle : ${yearlySavings.toFixed(0)}€`;
-            document.getElementById('additionalOrders').textContent = `+ ${additionalOrders} commandes supplémentaires par mois`;
+            document.getElementById('timeResult').textContent = `⏰ ${monthlyHours}h libérées chaque mois (soit ${Math.round(monthlyHours/8)} jours de travail !)`;
+            document.getElementById('focusResult').textContent = `🎯 ${Math.round(monthlyInterruptions)} interruptions évitées par mois`;
+            document.getElementById('revenueResult').textContent = `💰 +${additionalRevenue.toLocaleString()}€ de CA mensuel estimé`;
             
             document.getElementById('result').style.display = 'block';
         }
 
         // Animation au scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item');
+            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item, .benefit-item');
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
@@ -778,7 +951,7 @@
 
         // Initial setup for animations
         document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item');
+            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item, .benefit-item');
             elements.forEach(element => {
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(30px)';

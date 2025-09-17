@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAKEO - Message envoyé avec succès</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Thank You Section */
+        .thank-you {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+        }
+
+        .thank-you::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 200%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        .thank-you-content {
+            max-width: 730px;
+            margin: 0 auto;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .thank-you h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .thank-you p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .highlight-text {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .next-steps {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .next-steps h3 {
+            color: #4CAF50;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .steps-list {
+            text-align: left;
+            color: #b0b0b0;
+        }
+
+        .steps-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1rem;
+        }
+
+        .steps-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .contact-info h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: #b0b0b0;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .thank-you {
+                padding: 60px 0;
+            }
+            
+            .success-icon {
+                font-size: 3rem;
+            }
+            
+            .next-steps {
+                padding: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .thank-you-content > * {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .thank-you-content > *:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .thank-you-content > *:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .thank-you-content > *:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .thank-you-content > *:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+    </style>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="9a2a4977-8e55-436e-bb7a-941cc85972d8"></script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '799046875875090');
+    fbq('track', 'PageView');
+    fbq('track', 'Lead');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=799046875875090&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">TAKEO</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="thank-you">
+        <div class="container">
+            <div class="thank-you-content">
+                <div class="success-icon">🎉</div>
+                
+                <h1>Message envoyé avec succès !</h1>
+                
+                <p>Merci pour votre demande ! Notre équipe d'experts a bien reçu vos informations.</p>
+                
+                <p><strong class="highlight-text">Nous vous contacterons très prochainement</strong> pour vous présenter TAKEO.</p>
+
+                <div class="next-steps">
+                    <h3>📋 Prochaine étape</h3>
+                    <ul class="steps-list">
+                        <li><strong>Sous 24h</strong> : Un expert TAKEO vous contacte pour échanger sur vos besoins</li>
+                    </ul>
+                </div>
+
+                <div class="contact-info">
+                    <h4>💬 Besoin d'aide immédiate ?</h4>
+                    <p><strong>Email :</strong> support@takeo.app</p>
+                    <p><strong>Support :</strong> Lundi au vendredi 9h-18h</p>
+                </div>
+
+                <a href="index.html" class="back-button">← Retour à l'accueil</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animation de la page au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ajouter une classe pour déclencher les animations
+            const elements = document.querySelectorAll('.thank-you-content > *');
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    element.style.transition = 'all 0.8s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
