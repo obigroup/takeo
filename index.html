@@ -6,6 +6,7 @@
     <title>TAKEO - Plus jamais décrocher le téléphone</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Reset et base */
         * {
             margin: 0;
             padding: 0;
@@ -25,6 +26,131 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+
+        /* Sections communes */
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Titres */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Gradients réutilisables */
+        .gradient-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gradient-success {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+        }
+
+        .gradient-text-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-success {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Boutons */
+        .btn {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Cartes */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Grilles */
+        .grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .grid-auto {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .grid-auto-large {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-auto-xlarge {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        /* Textes */
+        .text-center { text-align: center; }
+        .text-muted { color: #b0b0b0; }
+        .text-light { color: #e0e0e0; }
 
         /* Header */
         header {
@@ -54,24 +180,13 @@
         }
 
         .nav-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
             padding: 12px 24px;
-            border: none;
             border-radius: 25px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            color: white;
         }
 
-        .nav-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
             padding: 120px 0 80px;
             text-align: center;
@@ -93,7 +208,6 @@
 
         .liberation-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
             color: white;
             padding: 8px 20px;
             border-radius: 20px;
@@ -108,27 +222,12 @@
             50% { transform: scale(1.05); }
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         .hero-highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             font-weight: 800;
         }
 
         .hero p {
             font-size: 1.3rem;
-            color: #e0e0e0;
             max-width: 700px;
             margin: 0 auto 20px;
             font-weight: 500;
@@ -136,7 +235,6 @@
 
         .hero-subtext {
             font-size: 1.1rem;
-            color: #b0b0b0;
             max-width: 600px;
             margin: 0 auto 40px;
         }
@@ -181,79 +279,13 @@
             margin-bottom: 60px;
         }
 
-        .cta-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 18px 35px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: white;
-            padding: 18px 35px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-        }
-
-        .cta-secondary:hover {
-            border-color: white;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .demo-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 40px;
-        }
-
-        .demo-section h3 {
-            margin-bottom: 15px;
-            color: #667eea;
-        }
-
-        .phone-button {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .phone-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
-        }
-
-        /* Solution Section */
+        /* Solution */
         .solution {
-            padding: 80px 0;
             background: rgba(76, 175, 80, 0.05);
+        }
+
+        .solution h2 {
+            margin-bottom: 30px;
         }
 
         .solution-content {
@@ -262,26 +294,12 @@
             margin: 0 auto;
         }
 
-        .solution h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         .solution-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
             margin-top: 50px;
         }
 
         .benefit-item {
-            background: rgba(255, 255, 255, 0.05);
             padding: 30px;
-            border-radius: 12px;
             border-left: 4px solid #4CAF50;
         }
 
@@ -292,80 +310,33 @@
         }
 
         .benefit-item p {
-            color: #e0e0e0;
             font-size: 0.95rem;
         }
 
-        /* Stats Section */
-        .stats {
-            padding: 80px 0;
-            background: rgba(255, 255, 255, 0.02);
-        }
-
+        /* Stats */
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
             text-align: center;
         }
 
         .stat-item h3 {
             font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 10px;
         }
 
         .stat-item p {
-            color: #b0b0b0;
             font-weight: 500;
         }
 
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
+        /* Features */
         .feature-card {
-            background: rgba(255, 255, 255, 0.05);
             padding: 40px 30px;
-            border-radius: 15px;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
         }
 
         .feature-icon {
             font-size: 3rem;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .feature-card h3 {
@@ -375,29 +346,12 @@
         }
 
         .feature-card p {
-            color: #b0b0b0;
             line-height: 1.6;
         }
 
-        /* Applications Section */
-        .applications {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 80px 0;
-        }
-
-        .applications h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
+        /* Applications */
         .applications-subtitle {
             text-align: center;
-            color: #b0b0b0;
             margin-bottom: 60px;
             max-width: 600px;
             margin-left: auto;
@@ -405,36 +359,11 @@
         }
 
         /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .testimonials h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
             padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .testimonial-card p {
-            color: #e0e0e0;
             font-style: italic;
             margin-bottom: 20px;
         }
@@ -444,10 +373,10 @@
             font-weight: 600;
         }
 
-        /* Calculator Section */
+        /* Calculator */
         .calculator {
-            padding: 80px 0;
             background: rgba(102, 126, 234, 0.05);
+            padding: 60px 0;
         }
 
         .calculator-content {
@@ -456,19 +385,8 @@
             text-align: center;
         }
 
-        .calculator h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         .calculator-form {
-            background: rgba(255, 255, 255, 0.05);
             padding: 40px;
-            border-radius: 15px;
             margin-bottom: 30px;
         }
 
@@ -480,7 +398,6 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #e0e0e0;
             font-weight: 500;
         }
 
@@ -501,16 +418,12 @@
         }
 
         .calculate-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
             padding: 15px 40px;
-            border: none;
             border-radius: 25px;
             font-size: 1.1rem;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
             width: 100%;
+            color: white;
         }
 
         .calculate-btn:hover {
@@ -530,6 +443,23 @@
         .result h4 {
             color: #4CAF50;
             margin-bottom: 10px;
+        }
+
+        /* Contact */
+        .contact {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 60px 0;
+        }
+
+        .contact-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         /* Footer */
@@ -571,17 +501,29 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            section { padding: 40px 0; }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            
+            .grid-auto-large,
+            .grid-auto-xlarge {
+                grid-template-columns: 1fr;
             }
             
-            .features-grid {
-                grid-template-columns: 1fr;
+            /* Header mobile */
+            .nav-button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 24px;
             }
         }
 
@@ -593,6 +535,17 @@
 
         .floating {
             animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="9a2a4977-8e55-436e-bb7a-941cc85972d8"></script>
@@ -619,18 +572,18 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">TAKEO</div>
-                <a href="#contact" class="nav-button">✨ Libérez-moi du téléphone</a>
+                <a href="#contact" class="nav-button btn gradient-primary">✨ Stop au tel</a>
             </div>
         </div>
     </header>
 
     <section id="demo-section" class="hero">
         <div class="container">
-            <div class="liberation-badge">✨ LIBÉRATION TOTALE ✨</div>
+            <div class="liberation-badge gradient-success">✨ LIBÉRATION TOTALE ✨</div>
             
-            <h1>Plus jamais <span class="hero-highlight">décrocher le téléphone</span> pendant le service</h1>
+            <h1>Stop <span class="hero-highlight gradient-text-primary">au téléphone</span> pendant le service</h1>
             
-            <p>TAKEO gère automatiquement 100% de vos appels : commandes, réservations, informations.<br />
+            <p class="text-light">TAKEO gère automatiquement 100% de vos appels : commandes, réservations, informations.<br />
             <strong>Concentrez-vous enfin sur votre cuisine et vos clients en salle !</strong></p>
             
             <div class="pain-points">
@@ -643,12 +596,12 @@
                 </ul>
             </div>
 
-            <div class="hero-subtext">
+            <div class="hero-subtext text-muted">
                 Avec TAKEO, votre téléphone devient silencieux. Tout est géré automatiquement, 24h/24, dans toutes les langues.
             </div>
             
             <div class="cta-buttons">
-                <a href="#contact" class="cta-primary">🚀 Je veux ma liberté</a>
+                <a href="#contact" class="btn btn-primary gradient-primary">🚀 Je veux ma liberté</a>
             </div>
         </div>
     </section>
@@ -656,30 +609,30 @@
     <section class="solution">
         <div class="container">
             <div class="solution-content">
-                <h2>🌟 Votre nouvelle réalité</h2>
-                <p style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 40px;">
+                <h2 class="gradient-text-success">🌟 Votre nouvelle réalité</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 40px;" class="text-light">
                     Imaginez un service où vous n'êtes <strong>JAMAIS</strong> interrompu par le téléphone
                 </p>
 
-                <div class="solution-benefits">
-                    <div class="benefit-item">
+                <div class="solution-benefits grid grid-auto">
+                    <div class="benefit-item card">
                         <h4>🍳 Cuisine en continu</h4>
-                        <p>Plus d'interruption en pleine préparation. Vos plats sortent à l'heure, vos clients sont satisfaits.</p>
+                        <p class="text-light">Plus d'interruption en pleine préparation. Vos plats sortent à l'heure, vos clients sont satisfaits.</p>
                     </div>
                     
-                    <div class="benefit-item">
+                    <div class="benefit-item card">
                         <h4>👥 Service en salle premium</h4>
-                        <p>Votre équipe se consacre 100% à l'accueil et au service. Fini les clients qui attendent.</p>
+                        <p class="text-light">Votre équipe se consacre 100% à l'accueil et au service. Fini les clients qui attendent.</p>
                     </div>
                     
-                    <div class="benefit-item">
+                    <div class="benefit-item card">
                         <h4>😌 Sérénité totale</h4>
-                        <p>Travaillez l'esprit tranquille. Chaque appel est traité parfaitement, même aux heures de pointe.</p>
+                        <p class="text-light">Travaillez l'esprit tranquille. Chaque appel est traité parfaitement, même aux heures de pointe.</p>
                     </div>
                     
-                    <div class="benefit-item">
+                    <div class="benefit-item card">
                         <h4>💰 Zéro perte de CA</h4>
-                        <p>Toutes les commandes sont prises, même quand vous êtes débordé. Votre chiffre d'affaires explose.</p>
+                        <p class="text-light">Toutes les commandes sont prises, même quand vous êtes débordé. Votre chiffre d'affaires explose.</p>
                     </div>
                 </div>
             </div>
@@ -688,22 +641,22 @@
 
     <section class="stats">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>0</h3>
-                    <p>Interruption de service</p>
+            <div class="stats-grid grid grid-auto">
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="gradient-text-primary">0</h3>
+                    <p class="text-muted">Interruption de service</p>
                 </div>
-                <div class="stat-item">
-                    <h3>24/7</h3>
-                    <p>Prise d'appels automatique</p>
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="gradient-text-primary">24/7</h3>
+                    <p class="text-muted">Prise d'appels automatique</p>
                 </div>
-                <div class="stat-item">
-                    <h3>∞</h3>
-                    <p>Appels simultanés</p>
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="gradient-text-primary">∞</h3>
+                    <p class="text-muted">Appels simultanés</p>
                 </div>
-                <div class="stat-item">
-                    <h3>+25%</h3>
-                    <p>Chiffre d'affaires</p>
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="gradient-text-primary">+25%</h3>
+                    <p class="text-muted">Chiffre d'affaires</p>
                 </div>
             </div>
         </div>
@@ -712,15 +665,15 @@
     <section class="applications" id="applications">
         <div class="container">
             <h2>TAKEO gère tout automatiquement</h2>
-            <p class="applications-subtitle">
+            <p class="applications-subtitle text-muted">
                 Votre agent vocal intelligent s'occupe de tous vos appels pendant que vous vous concentrez sur l'essentiel
             </p>
             
-            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-                <div class="feature-card">
-                    <div class="feature-icon">🛒</div>
+            <div class="grid grid-auto-xlarge">
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">🛒</div>
                     <h3>Commandes automatisées</h3>
-                    <div style="text-align: left; color: #e0e0e0; line-height: 1.8;">
+                    <div style="text-align: left; line-height: 1.8;" class="text-light">
                         • <strong>Call & Collect</strong> : Prise de commande et retrait<br>
                         • <strong>Vente additionnelle</strong> : Suggestions automatiques<br>
                         • <strong>Conseils personnalisés</strong> : Recommandations selon les préférences<br>
@@ -728,10 +681,10 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">📋</div>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">📋</div>
                     <h3>Réservations intelligentes</h3>
-                    <div style="text-align: left; color: #e0e0e0; line-height: 1.8;">
+                    <div style="text-align: left; line-height: 1.8;" class="text-light">
                         • <strong>Réservations de tables</strong> : Gestion complète du planning<br>
                         • <strong>Événements privés</strong> : Anniversaires, groupes<br>
                         • <strong>Confirmations automatiques</strong> : SMS et emails<br>
@@ -739,10 +692,10 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">ℹ️</div>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">ℹ️</div>
                     <h3>Informations & Support</h3>
-                    <div style="text-align: left; color: #e0e0e0; line-height: 1.8;">
+                    <div style="text-align: left; line-height: 1.8;" class="text-light">
                         • <strong>Informations pratiques</strong> : Horaires, adresse, itinéraire<br>
                         • <strong>Carte détaillée</strong> : Plats, allergènes, prix<br>
                         • <strong>Menus du jour</strong> : Suggestions et promotions<br>
@@ -756,41 +709,41 @@
     <section class="features" id="features">
         <div class="container">
             <h2>Comment TAKEO vous libère</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
+            <div class="grid grid-auto-large">
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">🧠</div>
                     <h3>Intelligence totale</h3>
-                    <p>Comprend parfaitement votre carte, explique les plats, gère les modifications. Plus intelligent qu'un serveur.</p>
+                    <p class="text-muted">Comprend parfaitement votre carte, explique les plats, gère les modifications. Plus intelligent qu'un serveur.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">🌐</div>
                     <h3>Multilingue natif</h3>
-                    <p>Parle parfaitement français, anglais, italien... Vos clients étrangers sont choyés comme jamais.</p>
+                    <p class="text-muted">Parle parfaitement français, anglais, italien... Vos clients étrangers sont choyés comme jamais.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">⚡</div>
                     <h3>Capacité illimitée</h3>
-                    <p>Traite 1000 appels simultanés sans broncher. Fini les lignes occupées, même pendant les pics.</p>
+                    <p class="text-muted">Traite 1000 appels simultanés sans broncher. Fini les lignes occupées, même pendant les pics.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🔗</div>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">🔗</div>
                     <h3>Intégration magique</h3>
-                    <p>Se connecte à votre caisse et planning. Les commandes arrivent directement, prêtes à être préparées.</p>
+                    <p class="text-muted">Se connecte à votre caisse et planning. Les commandes arrivent directement, prêtes à être préparées.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">💳</div>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">💳</div>
                     <h3>Paiement anticipé</h3>
-                    <p>Envoie automatiquement les liens de paiement par SMS. Vos commandes sont payées avant même d'être préparées.</p>
+                    <p class="text-muted">Envoie automatiquement les liens de paiement par SMS. Vos commandes sont payées avant même d'être préparées.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">🛡️</div>
                     <h3>Fiabilité absolue</h3>
-                    <p>Ne tombe jamais malade, ne prend jamais de congés, ne fait jamais d'erreurs. Votre service parfait 365j/an.</p>
+                    <p class="text-muted">Ne tombe jamais malade, ne prend jamais de congés, ne fait jamais d'erreurs. Votre service parfait 365j/an.</p>
                 </div>
             </div>
         </div>
@@ -799,79 +752,46 @@
     <section class="testimonials">
         <div class="container">
             <h2>Ils ont retrouvé leur liberté</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>"Plus jamais je ne décroche le téléphone pendant le service ! Mes équipes se concentrent enfin sur la cuisine et l'accueil. Le stress a complètement disparu."</p>
+            <div class="grid grid-auto-large">
+                <div class="testimonial-card card animate-on-scroll">
+                    <p class="text-light">"Plus jamais je ne décroche le téléphone pendant le service ! Mes équipes se concentrent enfin sur la cuisine et l'accueil. Le stress a complètement disparu."</p>
                     <div class="testimonial-author">— Le KotoKoto, Annecy</div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <p>"TAKEO comprend mieux nos spécialités japonaises que nos serveurs ! Et surtout, nous ne ratons plus aucune commande aux heures de pointe."</p>
+                <div class="testimonial-card card animate-on-scroll">
+                    <p class="text-light">"TAKEO comprend mieux nos spécialités japonaises que nos serveurs ! Et surtout, nous ne ratons plus aucune commande aux heures de pointe."</p>
                     <div class="testimonial-author">— Yatta Ramen</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="calculator" id="calculator" style="padding: 60px 0;">
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="calculator-content">
-                <h2>Calculez votre liberté</h2>
-                <p style="margin-bottom: 30px; color: #b0b0b0;">Découvrez combien d'heures TAKEO vous libère chaque mois</p>
-                
-                <div class="calculator-form">
-                    <div class="form-group">
-                        <label for="nbcalls">Nombre d'appels par jour :</label>
-                        <input type="number" id="nbcalls" value="30" min="1">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="call-time">Durée moyenne d'un appel (minutes) :</label>
-                        <input type="number" id="call-time" value="3" min="1" max="10">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="days">Jours d'ouverture par semaine :</label>
-                        <input type="number" id="days" value="6" min="1" max="7">
-                    </div>
-                    
-                    <button class="calculate-btn" onclick="calculateLiberation()">Calculer ma libération</button>
-                    
-                    <div class="result" id="result">
-                        <h4>🕐 Votre liberté retrouvée :</h4>
-                        <p id="timeResult"></p>
-                        <p id="focusResult"></p>
-                        <p id="revenueResult"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features" id="contact" style="background: rgba(102, 126, 234, 0.05); padding: 60px 0;">
-        <div class="container">
-            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+            <div class="contact-content">
                 <h2>Récupérez votre liberté dès maintenant</h2>
-                <p style="color: #b0b0b0; margin-bottom: 40px; font-size: 1.2rem;">
+                <p class="text-muted" style="margin-bottom: 40px; font-size: 1.2rem;">
                     <strong>Installation en 48h • Formation incluse • Support 24/7</strong><br>
                     Nos experts configurent TAKEO selon vos besoins. Plus jamais d'interruption téléphonique.
                 </p>
                 
-                <div style="background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 15px;">
-                    <h3 style="color: #667eea; margin-bottom: 20px;">📝 Obtenez votre devis personnalisé</h3>
-                    <p style="margin-bottom: 30px;">Remplissez le formulaire ci-dessous et recevez une proposition sur mesure sous 24h. Zéro engagement.</p>
-                    
-                    <div style="max-width: 500px; margin: 0 auto;">
-                        <iframe data-tally-src="https://tally.so/embed/m6qoy5?alignLeft=1&transparentBackground=1&hideTitle=1&dynamicHeight=1" loading="lazy" width="100%" height="482" frameborder="0" marginheight="0" marginwidth="0" title="null"></iframe>
-                        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-                    </div>
+                <div class="card">
+                    <div style="padding: 40px;">
+                        <h3 style="color: #667eea; margin-bottom: 20px;">📝 Obtenez votre devis personnalisé</h3>
+                        <p style="margin-bottom: 30px;">Remplissez le formulaire ci-dessous et recevez une proposition sur mesure sous 24h. Zéro engagement.</p>
+                        
+                        <div class="contact-form">
+                            <iframe data-tally-src="https://tally.so/embed/m6qoy5?alignLeft=1&transparentBackground=1&hideTitle=1&dynamicHeight=1" loading="lazy" width="100%" height="482" frameborder="0" marginheight="0" marginwidth="0" title="null"></iframe>
+                            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+                        </div>
 
-                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-                        <p style="color: #888; font-size: 0.9rem;">
-                            ✅ <strong>Installation personnalisée</strong> : Configuration sur mesure<br>
-                            ✅ <strong>Formation complète</strong> : Votre équipe maîtrise tout<br>
-                            ✅ <strong>Support premium</strong> : Assistance 9h-18h + urgences 24/7
-                        </p>
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <p style="color: #888; font-size: 0.9rem;">
+                                ✅ <strong>Installation personnalisée</strong> : Configuration sur mesure<br>
+                                ✅ <strong>Formation complète</strong> : Votre équipe maîtrise tout<br>
+                                ✅ <strong>Support premium</strong> : Assistance 9h-18h + urgences 24/7
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -911,65 +831,19 @@
     </footer>
 
     <script>
-        function calculateLiberation() {
-            const nbcalls = parseInt(document.getElementById('nbcalls').value);
-            const callTime = parseInt(document.getElementById('call-time').value);
-            const days = parseInt(document.getElementById('days').value);
-            
-            // Calcul du temps libéré
-            const dailyMinutes = nbcalls * callTime;
-            const weeklyMinutes = dailyMinutes * days;
-            const monthlyMinutes = weeklyMinutes * 4.33; // moyenne mensuelle (52 semaines / 12 mois)
-            const monthlyHours = Math.round((monthlyMinutes / 60) * 10) / 10; // Arrondi à 1 décimale
-            
-            // Calcul des interruptions évitées
-            const dailyInterruptions = nbcalls;
-            const monthlyInterruptions = Math.round(dailyInterruptions * days * 4.33);
-            
-            // Estimation du CA supplémentaire (tickets moyens de 25€, 25% d'augmentation)
-            const additionalRevenue = Math.round(nbcalls * 0.25 * 25 * days * 4.33);
-            
-            // Calcul plus précis des jours de travail libérés
-            const workDaysLiberated = Math.round((monthlyHours / 8) * 10) / 10; // Arrondi à 1 décimale
-            
-            // Affichage des résultats
-            document.getElementById('timeResult').textContent = 
-                `⏰ ${monthlyHours}h libérées chaque mois (soit ${workDaysLiberated} jours de travail)`;
-            
-            document.getElementById('focusResult').textContent = 
-                `🎯 ${monthlyInterruptions} interruptions évitées par mois`;
-            
-            document.getElementById('revenueResult').textContent = 
-                `💰 +${additionalRevenue.toLocaleString()}€ de CA mensuel estimé`;
-            
-            document.getElementById('result').style.display = 'block';
-        }
         // Animation au scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item, .benefit-item');
+            const elements = document.querySelectorAll('.animate-on-scroll');
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 if (elementTop < windowHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+                    element.classList.add('visible');
                 }
             });
         }
 
-        // Initial setup for animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item, .benefit-item');
-            elements.forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
-                element.style.transition = 'all 0.6s ease';
-            });
-        });
-
-        window.addEventListener('scroll', animateOnScroll);
-        
-        // Smooth scrolling for anchor links
+        // Smooth scrolling pour les liens d'ancrage
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -982,6 +856,9 @@
                 }
             });
         });
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('DOMContentLoaded', animateOnScroll);
     </script>
 </body>
 </html>
