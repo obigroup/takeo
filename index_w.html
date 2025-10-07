@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAKEO - Agent Vocal IA pour Restaurants</title>
+    <title>TAKEO - Plus jamais décrocher le téléphone</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Reset et base */
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +15,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-            color: #1a202c;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            color: #1a1a1a;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -26,6 +27,129 @@
             padding: 0 20px;
         }
 
+        /* Sections communes */
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background: rgba(102, 126, 234, 0.03);
+        }
+
+        /* Titres */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Gradients réutilisables */
+        .gradient-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gradient-success {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+        }
+
+        .gradient-text-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-success {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Boutons */
+        .btn {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary:hover {
+            border-color: #764ba2;
+            background: rgba(102, 126, 234, 0.05);
+            color: #764ba2;
+        }
+
+        /* Cartes */
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Grilles */
+        .grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .grid-auto {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .grid-auto-large {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Textes */
+        .text-center { text-align: center; }
+        .text-muted { color: #666666; }
+        .text-light { color: #333333; }
+
         /* Header */
         header {
             padding: 20px 0;
@@ -35,8 +159,8 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .header-content {
@@ -55,30 +179,19 @@
         }
 
         .nav-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
             padding: 12px 24px;
-            border: none;
             border-radius: 25px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            color: white;
         }
 
-        .nav-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            padding: 120px 0 80px;
+            padding: 120px 0 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
         .hero::before {
@@ -93,21 +206,69 @@
             z-index: -1;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, #1a202c 0%, #4a5568 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .liberation-badge {
+            display: inline-block;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: #4a5568;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-highlight {
+            font-weight: 800;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            font-weight: 500;
+        }
+
+        .hero-subtext {
+            font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto 40px;
+        }
+
+        .pain-points {
+            background: rgba(255, 0, 0, 0.05);
+            border: 2px solid rgba(255, 100, 100, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px auto 40px;
+            max-width: 600px;
+        }
+
+        .pain-points h3 {
+            color: #d32f2f;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .pain-points-list {
+            list-style: none;
+            color: #c62828;
+        }
+
+        .pain-points-item {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .pain-points-item::before {
+            content: "❌";
+            position: absolute;
+            left: 0;
         }
 
         .cta-buttons {
@@ -118,194 +279,84 @@
             margin-bottom: 60px;
         }
 
-        .cta-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+        /* Solution */
+        .solution {
+            background: rgba(76, 175, 80, 0.05);
+            padding-top: 40px;
         }
 
-        .cta-secondary {
-            background: transparent;
-            color: #4a5568;
-            padding: 16px 32px;
-            border: 2px solid rgba(74, 85, 104, 0.3);
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+        .solution-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        .solution-intro {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
         }
 
-        .cta-secondary:hover {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.05);
-            color: #667eea;
+        .solution-benefits {
+            margin-top: 50px;
         }
 
-        .demo-section {
-            background: rgba(102, 126, 234, 0.05);
-            border: 1px solid rgba(102, 126, 234, 0.1);
-            border-radius: 15px;
+        .benefit-item {
             padding: 30px;
-            margin-top: 40px;
+            border-left: 4px solid #4CAF50;
         }
 
-        .demo-section h3 {
-            margin-bottom: 15px;
-            color: #667eea;
-        }
-
-        .phone-button {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px;
+        .benefit-title {
+            color: #4CAF50;
+            margin-bottom: 10px;
             font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
         }
 
-        .phone-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        .benefit-description {
+            font-size: 0.95rem;
         }
 
-        /* Stats Section */
-        .stats {
-            padding: 80px 0;
-            background: rgba(102, 126, 234, 0.03);
-        }
-
+        /* Stats */
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
             text-align: center;
         }
 
         .stat-item h3 {
             font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 10px;
         }
 
-        .stat-item p {
-            color: #4a5568;
+        .stat-description {
             font-weight: 500;
         }
 
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            background: linear-gradient(135deg, #1a202c 0%, #4a5568 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
+        /* Features */
         .feature-card {
-            background: white;
             padding: 40px 30px;
-            border-radius: 15px;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            border-color: rgba(102, 126, 234, 0.2);
         }
 
         .feature-icon {
             font-size: 3rem;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
-        .feature-card h3 {
+        .feature-title {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: #1a202c;
+            color: #1a1a1a;
         }
 
-        .feature-card p {
-            color: #4a5568;
+        .feature-description {
             line-height: 1.6;
         }
 
         /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-            background: rgba(102, 126, 234, 0.03);
-        }
-
-        .testimonials h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            background: linear-gradient(135deg, #1a202c 0%, #4a5568 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
         .testimonial-card {
-            background: white;
             padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        .testimonial-card p {
-            color: #2d3748;
+        .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
         }
@@ -315,102 +366,77 @@
             font-weight: 600;
         }
 
-        /* Calculator Section */
-        .calculator {
-            padding: 80px 0;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        /* Contact */
+        .contact {
+            background: rgba(102, 126, 234, 0.03);
+            padding: 60px 0;
         }
 
-        .calculator-content {
-            max-width: 600px;
+        .contact-content {
+            max-width: 1000px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .calculator h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #1a202c 0%, #4a5568 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .contact-intro {
+            margin-bottom: 40px;
+            font-size: 1.2rem;
         }
 
-        .calculator-form {
-            background: white;
+        .pricing-card {
             padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        .form-group {
+        .pricing-header {
+            color: #667eea;
             margin-bottom: 20px;
-            text-align: left;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #2d3748;
-            font-weight: 500;
+        .pricing-amount {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 20px 0 10px;
         }
 
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            background: #f7fafc;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            color: #1a202c;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-            background: white;
-        }
-
-        .calculate-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .calculate-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .result {
-            background: rgba(76, 175, 80, 0.05);
-            border: 1px solid rgba(76, 175, 80, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            display: none;
-        }
-
-        .result h4 {
-            color: #4CAF50;
+        .pricing-period {
+            font-size: 1.2rem;
+            color: #666666;
             margin-bottom: 10px;
+        }
+
+        .pricing-vat {
+            font-size: 0.9rem;
+            color: #999999;
+            margin-bottom: 30px;
+        }
+
+        .pricing-description {
+            margin-bottom: 30px;
+            color: #333333;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .pricing-features {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .pricing-features-text {
+            color: #666666;
+            font-size: 0.9rem;
         }
 
         /* Footer */
         footer {
             padding: 60px 0 30px;
-            background: #f7fafc;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
         }
 
         .footer-content {
@@ -426,49 +452,50 @@
         }
 
         .footer-section p, .footer-section a {
-            color: #4a5568;
+            color: #666666;
             text-decoration: none;
             margin-bottom: 10px;
             display: block;
         }
 
         .footer-section a:hover {
-            color: #667eea;
+            color: #1a1a1a;
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            color: #718096;
-        }
-
-        /* Special sections backgrounds */
-        .features:nth-of-type(2) {
-            background: rgba(102, 126, 234, 0.03);
-        }
-
-        .features:nth-of-type(4) {
-            background: rgba(102, 126, 234, 0.03);
-        }
-
-        .features#contact {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-top: 1px solid #e0e0e0;
+            color: #999999;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            section { padding: 40px 0; }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            
+            .grid-auto-large {
+                grid-template-columns: 1fr;
             }
             
-            .features-grid {
-                grid-template-columns: 1fr;
+            .nav-button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+
+            .pricing-amount {
+                font-size: 2.5rem;
             }
         }
 
@@ -481,73 +508,103 @@
         .floating {
             animation: float 3s ease-in-out infinite;
         }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="9a2a4977-8e55-436e-bb7a-941cc85972d8"></script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '799046875875090');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=799046875875090&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">TAKEO</div>
-                <a href="#contact" class="nav-button">Parler à un expert</a>
+                <a href="#contact" class="nav-button btn gradient-primary">✨ Stop au tel</a>
             </div>
         </div>
     </header>
 
     <section id="demo-section" class="hero">
         <div class="container">
-            <h1>Ne ratez plus jamais une commande</h1>
-            <p>TAKEO transforme chaque appel en commande / réservation !<br /> L'agent vocal IA disponible 24h/24, multilingue et patient avec vos clients.</p>
+            <div class="liberation-badge gradient-success">✨ LIBÉRATION TOTALE ✨</div>
+            
+            <h1>Stop <span class="hero-highlight gradient-text-primary">au téléphone</span> pendant le service</h1>
+            
+            <p class="hero-description text-light">TAKEO gère automatiquement 100% de vos appels : commandes, réservations, informations.<br />
+            <strong>Concentrez-vous enfin sur votre cuisine et vos clients en salle !</strong></p>
+            
+            <div class="pain-points">
+                <h3>🔥 Stop aux interruptions qui cassent votre service :</h3>
+                <ul class="pain-points-list">
+                    <li class="pain-points-item">Téléphone qui sonne en plein coup de feu</li>
+                    <li class="pain-points-item">Obligation d'arrêter de cuisiner pour répondre</li>
+                    <li class="pain-points-item">Clients en salle qui attendent pendant une prise de commande</li>
+                    <li class="pain-points-item">Stress permanent de rater des appels</li>
+                </ul>
+            </div>
+
+            <div class="hero-subtext text-muted">
+                Avec TAKEO, votre téléphone devient silencieux. Tout est géré automatiquement, 24h/24, dans toutes les langues.
+            </div>
             
             <div class="cta-buttons">
-                <a href="#calculator" class="cta-primary">Calculer mes économies</a>
-                <a href="#contact" class="cta-secondary">Parler à un expert</a>
+                <a href="#contact" class="btn btn-primary gradient-primary">🚀 Commencer à 59€/mois</a>
             </div>
-
-            <div class="demo-section">
-                <h3>🎧 Testez TAKEO maintenant</h3>
-                <p>Appelez le KotoKoto et découvrez notre agent vocal en action :</p>
-                <a href="tel:+33450690967" class="phone-button">📞 04 50 69 09 67</a>
-            </div>
+        </div>
     </section>
 
-    <section class="features" id="applications" style="background: rgba(102, 126, 234, 0.03);">
+    <section class="solution">
         <div class="container">
-            <h2>Toutes les applications TAKEO</h2>
-            <p style="text-align: center; color: #4a5568; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Un agent vocal polyvalent qui s'adapte à tous vos besoins opérationnels
-            </p>
-            
-            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-                <div class="feature-card">
-                    <div class="feature-icon">🛒</div>
-                    <h3>Prise de commandes avancée</h3>
-                    <div style="text-align: left; color: #4a5568; line-height: 1.8;">
-                        • <strong>Call & Collect</strong> : Prise de commande et retrait<br>
-                        • <strong>Vente additionnelle</strong> : Suggestions automatiques d'accompagnements<br>
-                        • <strong>Conseils personnalisés</strong> : Recommandations selon les préférences
-                    </div>
-                </div>
+            <div class="solution-content">
+                <h2 class="gradient-text-success">🌟 Votre nouvelle réalité</h2>
+                <p class="solution-intro text-light">
+                    Imaginez un service où vous n'êtes <strong>JAMAIS</strong> interrompu par le téléphone
+                </p>
 
-                <div class="feature-card">
-                    <div class="feature-icon">📋</div>
-                    <h3>Réservations et rendez-vous</h3>
-                    <div style="text-align: left; color: #4a5568; line-height: 1.8;">
-                        • <strong>Réservations de tables</strong> : Gestion complète du planning<br>
-                        • <strong>Prise de rendez-vous</strong> : Services spécialisés, consultations<br>
-                        • <strong>Événements privés</strong> : Anniversaires, réceptions d'entreprise<br>
-                        • <strong>Confirmations automatiques</strong> : SMS et emails de rappel ou de paiement
+                <div class="solution-benefits grid grid-auto">
+                    <div class="benefit-item card">
+                        <h4 class="benefit-title">🍳 Cuisine en continu</h4>
+                        <p class="benefit-description text-light">Plus d'interruption en pleine préparation. Vos plats sortent à l'heure, vos clients sont satisfaits.</p>
                     </div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">ℹ️</div>
-                    <h3>Service client et informations</h3>
-                    <div style="text-align: left; color: #4a5568; line-height: 1.8;">
-                        • <strong>Informations pratiques</strong> : Horaires, adresse, itinéraire<br>
-                        • <strong>Carte et allergènes</strong> : Présentation détaillée des plats<br>
-                        • <strong>Menus du jour</strong> : Suggestions quotidiennes, promotions<br>
-                        • <strong>Expertise complète</strong> : Renseignements sur tous vos services
+                    
+                    <div class="benefit-item card">
+                        <h4 class="benefit-title">👥 Service en salle premium</h4>
+                        <p class="benefit-description text-light">Votre équipe se consacre 100% à l'accueil et au service. Fini les clients qui attendent.</p>
+                    </div>
+                    
+                    <div class="benefit-item card">
+                        <h4 class="benefit-title">😌 Sérénité totale</h4>
+                        <p class="benefit-description text-light">Travaillez l'esprit tranquille. Chaque appel est traité parfaitement, même aux heures de pointe.</p>
+                    </div>
+                    
+                    <div class="benefit-item card">
+                        <h4 class="benefit-title">💰 Zéro perte de CA</h4>
+                        <p class="benefit-description text-light">Toutes les commandes sont prises, même quand vous êtes débordé. Votre chiffre d'affaires explose.</p>
                     </div>
                 </div>
             </div>
@@ -556,22 +613,22 @@
 
     <section class="stats">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>+25%</h3>
-                    <p>Augmentation des commandes</p>
+            <div class="stats-grid grid grid-auto">
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="gradient-text-primary">0</h3>
+                    <p class="stat-description text-muted">Interruption de service</p>
                 </div>
-                <div class="stat-item">
-                    <h3>24/7</h3>
-                    <p>Disponibilité continue</p>
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="gradient-text-primary">24/7</h3>
+                    <p class="stat-description text-muted">Prise d'appels automatique</p>
                 </div>
-                <div class="stat-item">
-                    <h3>∞</h3>
-                    <p>Appels simultanés</p>
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="gradient-text-primary">∞</h3>
+                    <p class="stat-description text-muted">Appels simultanés</p>
                 </div>
-                <div class="stat-item">
-                    <h3>-80%</h3>
-                    <p>Réduction des erreurs</p>
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="gradient-text-primary">+25%</h3>
+                    <p class="stat-description text-muted">Chiffre d'affaires</p>
                 </div>
             </div>
         </div>
@@ -579,42 +636,42 @@
 
     <section class="features" id="features">
         <div class="container">
-            <h2>Pourquoi choisir TAKEO ?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>Prise de commandes intelligente</h3>
-                    <p>Compréhension parfaite de votre carte, suggestions personnalisées et gestion des modifications en temps réel.</p>
+            <h2>Comment TAKEO vous libère</h2>
+            <div class="grid grid-auto-large">
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">🧠</div>
+                    <h3 class="feature-title">Intelligence totale</h3>
+                    <p class="feature-description text-muted">Comprend parfaitement votre carte, explique les plats, gère les modifications. Plus intelligent qu'un serveur.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">📅</div>
-                    <h3>Réservations automatiques</h3>
-                    <p>Gestion complète de votre planning avec synchronisation agenda et confirmations automatiques par SMS.</p>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">🌐</div>
+                    <h3 class="feature-title">Multilingue natif</h3>
+                    <p class="feature-description text-muted">Parle parfaitement français, anglais, italien... Vos clients étrangers sont choyés comme jamais.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Multilingue</h3>
-                    <p>Communication parfaite dans toutes les langues avec une diction claire et professionnelle pour tous vos clients.</p>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">⚡</div>
+                    <h3 class="feature-title">Capacité illimitée</h3>
+                    <p class="feature-description text-muted">Traite 1000 appels simultanés sans broncher. Fini les lignes occupées, même pendant les pics.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Milliers d'appels simultanés</h3>
-                    <p>Fini les lignes occupées ! TAKEO peut gérer un nombre illimité d'appels en même temps.</p>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">🔗</div>
+                    <h3 class="feature-title">Intégration magique</h3>
+                    <p class="feature-description text-muted">Se connecte à votre caisse et planning. Les commandes arrivent directement, prêtes à être préparées.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🔌</div>
-                    <h3>Intégration complète</h3>
-                    <p>Connexion avec votre caisse, système de réservation, et envoi automatique des commandes par SMS ou e-mail.</p>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">💳</div>
+                    <h3 class="feature-title">Paiement anticipé</h3>
+                    <p class="feature-description text-muted">Envoie automatiquement les liens de paiement par SMS. Vos commandes sont payées avant même d'être préparées.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">💳</div>
-                    <h3>Paiement anticipé</h3>
-                    <p>Sécurisez vos commandes à emporter avec des liens de paiement automatiques envoyés par SMS.</p>
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">🛡️</div>
+                    <h3 class="feature-title">Fiabilité absolue</h3>
+                    <p class="feature-description text-muted">Ne tombe jamais malade, ne prend jamais de congés, ne fait jamais d'erreurs. Votre service parfait 365j/an.</p>
                 </div>
             </div>
         </div>
@@ -622,87 +679,49 @@
 
     <section class="testimonials">
         <div class="container">
-            <h2>Ils nous font confiance</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>"Depuis TAKEO, nous ne perdons plus aucune commande aux heures de pointe. Nos clients apprécient la clarté et la disponibilité 24h/24."</p>
+            <h2>Ils ont retrouvé leur liberté</h2>
+            <div class="grid grid-auto-large">
+                <div class="testimonial-card card animate-on-scroll">
+                    <p class="testimonial-text text-light">"Plus jamais je ne décroche le téléphone pendant le service ! Mes équipes se concentrent enfin sur la cuisine et l'accueil. Le stress a complètement disparu."</p>
                     <div class="testimonial-author">— Le KotoKoto, Annecy</div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <p>"L'intégration avec notre système de caisse a été parfaite. TAKEO comprend parfaitement nos spécialités japonaises et les explique mieux que nous !"</p>
+                <div class="testimonial-card card animate-on-scroll">
+                    <p class="testimonial-text text-light">"TAKEO comprend mieux nos spécialités japonaises que nos serveurs ! Et surtout, nous ne ratons plus aucune commande aux heures de pointe."</p>
                     <div class="testimonial-author">— Yatta Ramen</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="calculator" id="calculator">
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="calculator-content">
-                <h2>Calculez vos économies</h2>
-                <p style="margin-bottom: 30px; color: #4a5568;">Découvrez combien TAKEO peut vous faire économiser</p>
+            <div class="contact-content">
+                <h2>Commencez dès maintenant</h2>
+                <p class="contact-intro text-muted">
+                    <strong>Installation en 48h • Formation incluse • Support 24/7</strong><br>
+                    Nos experts configurent TAKEO selon vos besoins. Plus jamais d'interruption téléphonique.
+                </p>
                 
-                <div class="calculator-form">
-                    <div class="form-group">
-                        <label for="orders">Nombre de commandes par jour :</label>
-                        <input type="number" id="orders" value="50" min="1">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="salary">Salaire mensuel d'un employé (€) :</label>
-                        <input type="number" id="salary" value="2000" min="1000">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="hours">Heures dédiées aux appels par jour :</label>
-                        <input type="number" id="hours" value="4" min="1" max="24">
-                    </div>
-                    
-                    <button class="calculate-btn" onclick="calculateSavings()">Calculer mes économies</button>
-                    
-                    <div class="result" id="result">
-                        <h4>💰 Vos économies avec TAKEO :</h4>
-                        <p id="monthlyResult"></p>
-                        <p id="yearlyResult"></p>
-                        <p id="additionalOrders"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="card">
+                    <div class="pricing-card">
+                        <h3 class="pricing-header">💎 Tarif professionnel</h3>
+                        <div class="pricing-amount">59€</div>
+                        <div class="pricing-period">HT / mois</div>
+                        <div class="pricing-vat">(70,80€ TTC)</div>
+                        
+                        <div class="contact-form">
+                            <iframe data-tally-src="https://tally.so/embed/m6qoy5?alignLeft=1&transparentBackground=1&hideTitle=1&dynamicHeight=1" loading="lazy" width="100%" height="482" frameborder="0" marginheight="0" marginwidth="0" title="null"></iframe>
+                            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+                        </div>
 
-    <section class="features" id="contact" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);">
-        <div class="container">
-            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
-                <h2>Prêt à transformer votre entreprise ?</h2>
-                <p style="color: #4a5568; margin-bottom: 40px;">Nos experts vous accompagnent dans la mise en place de TAKEO. Installation rapide, formation incluse et support technique dédié.</p>
-                
-                <div style="background: white; padding: 40px; border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);">
-                    <h3 style="color: #667eea; margin-bottom: 20px;">📞 Prenez rendez-vous</h3>
-                    <p style="margin-bottom: 30px;">Discutons de vos besoins et découvrez comment TAKEO peut révolutionner votre prise de commandes / réservations.</p>
-                    
-                    <!-- Cal inline embed code begins -->
-                    <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-30min"></div>
-                    <script type="text/javascript">
-                    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-                    Cal("init", "30min", {origin:"https://app.cal.com"});
-
-                    Cal.ns["30min"]("inline", {
-                        elementOrSelector:"#my-cal-inline-30min",
-                        config: {"layout":"month_view"},
-                        calLink: "takeo/30min",
-                    });
-
-                    Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-                    </script>
-                    <!-- Cal inline embed code ends -->
-                    
-                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.08);">
-                        <p style="color: #718096; font-size: 0.9rem;">
-                            <strong>Installation :</strong> Sur mesure selon vos besoins<br>
-                            <strong>Support :</strong> Lundi au vendredi 9h-18h + urgences 24h/24
-                        </p>
+                        <div class="pricing-features">
+                            <p class="pricing-features-text">
+                                ✅ <strong>Installation personnalisée</strong> : Configuration sur mesure<br>
+                                ✅ <strong>Formation complète</strong> : Votre équipe maîtrise tout<br>
+                                ✅ <strong>Support premium</strong> : Assistance 9h-18h + urgences 24/7
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -714,14 +733,13 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>TAKEO</h3>
-                    <p>L'agent vocal IA qui révolutionne la prise de commandes et de réservations.</p>
+                    <p>L'agent vocal IA qui libère les restaurateurs du téléphone pour qu'ils se concentrent sur leur passion.</p>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Produit</h3>
-                    <a href="#features">Fonctionnalités</a>
-                    <a href="#calculator">Calculateur</a>
-                    <a href="#demo-section">Démo live</a>
+                    <h3>Solution</h3>
+                    <a href="#features">Comment ça marche</a>
+                    <a href="#contact">Pricing</a>
                 </div>
                 
                 <div class="footer-section">
@@ -735,60 +753,27 @@
                     <a href="#">Mentions légales</a>
                 </div>
             </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 TAKEO. Tous droits réservés.</p>
+            </div>
+        </div>
     </footer>
-    <script>
-        function calculateSavings() {
-            const orders = parseInt(document.getElementById('orders').value);
-            const salary = parseInt(document.getElementById('salary').value);
-            const hours = parseInt(document.getElementById('hours').value);
-            
-            // Prix TAKEO estimé (à ajuster selon votre pricing)
-            const takeoMonthlyPrice = 60;
-            
-            // Calcul du coût employé pour les heures dédiées aux appels
-            const hourlyWage = salary / (35 * 4.33); // 35h/semaine
-            const monthlyCallCost = hourlyWage * hours * 30;
-            
-            // Économies mensuelles
-            const monthlySavings = monthlyCallCost - takeoMonthlyPrice;
-            const yearlySavings = monthlySavings * 12;
-            
-            // Commandes supplémentaires estimées (35% d'augmentation)
-            const additionalOrders = Math.round(orders * 0.25 * 20); // par mois
-            
-            document.getElementById('monthlyResult').textContent = `Économie mensuelle : ${monthlySavings.toFixed(0)}€`;
-            document.getElementById('yearlyResult').textContent = `Économie annuelle : ${yearlySavings.toFixed(0)}€`;
-            document.getElementById('additionalOrders').textContent = `+ ${additionalOrders} commandes supplémentaires par mois`;
-            
-            document.getElementById('result').style.display = 'block';
-        }
 
+    <script>
         // Animation au scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item');
+            const elements = document.querySelectorAll('.animate-on-scroll');
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 if (elementTop < windowHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+                    element.classList.add('visible');
                 }
             });
         }
 
-        // Initial setup for animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item');
-            elements.forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
-                element.style.transition = 'all 0.6s ease';
-            });
-        });
-
-        window.addEventListener('scroll', animateOnScroll);
-        
-        // Smooth scrolling for anchor links
+        // Smooth scrolling pour les liens d'ancrage
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -801,6 +786,9 @@
                 }
             });
         });
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('DOMContentLoaded', animateOnScroll);
     </script>
 </body>
 </html>

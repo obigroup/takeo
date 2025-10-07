@@ -15,8 +15,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            color: #1a1a1a;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -33,7 +33,7 @@
         }
 
         section:nth-child(even) {
-            background: rgba(102, 126, 234, 0.03);
+            background: rgba(255, 255, 255, 0.02);
         }
 
         /* Titres */
@@ -41,7 +41,7 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             margin-bottom: 24px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -51,7 +51,7 @@
             font-size: 2.5rem;
             margin-bottom: 30px;
             text-align: center;
-            background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -99,8 +99,8 @@
 
         .btn-secondary {
             background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn:hover {
@@ -112,23 +112,21 @@
         }
 
         .btn-secondary:hover {
-            border-color: #764ba2;
-            background: rgba(102, 126, 234, 0.05);
-            color: #764ba2;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* Cartes */
         .card {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         /* Grilles */
@@ -145,22 +143,25 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
 
+        .grid-auto-xlarge {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
         /* Textes */
         .text-center { text-align: center; }
-        .text-muted { color: #666666; }
-        .text-light { color: #333333; }
+        .text-muted { color: #b0b0b0; }
+        .text-light { color: #e0e0e0; }
 
         /* Header */
         header {
             padding: 20px 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #e0e0e0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .header-content {
@@ -187,11 +188,10 @@
 
         /* Hero */
         .hero {
-            padding: 120px 0 40px;
+            padding: 120px 0 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
         .hero::before {
@@ -201,7 +201,7 @@
             left: 50%;
             width: 200%;
             height: 100%;
-            background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
             transform: translateX(-50%);
             z-index: -1;
         }
@@ -226,7 +226,7 @@
             font-weight: 800;
         }
 
-        .hero-description {
+        .hero p {
             font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 20px;
@@ -240,8 +240,8 @@
         }
 
         .pain-points {
-            background: rgba(255, 0, 0, 0.05);
-            border: 2px solid rgba(255, 100, 100, 0.3);
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
             border-radius: 12px;
             padding: 25px;
             margin: 30px auto 40px;
@@ -249,23 +249,23 @@
         }
 
         .pain-points h3 {
-            color: #d32f2f;
+            color: #ff6b6b;
             margin-bottom: 15px;
             font-size: 1.2rem;
         }
 
-        .pain-points-list {
+        .pain-points ul {
             list-style: none;
-            color: #c62828;
+            color: #ffcccc;
         }
 
-        .pain-points-item {
+        .pain-points li {
             margin-bottom: 8px;
             position: relative;
             padding-left: 25px;
         }
 
-        .pain-points-item::before {
+        .pain-points li::before {
             content: "❌";
             position: absolute;
             left: 0;
@@ -282,18 +282,16 @@
         /* Solution */
         .solution {
             background: rgba(76, 175, 80, 0.05);
-            padding-top: 40px;
+        }
+
+        .solution h2 {
+            margin-bottom: 30px;
         }
 
         .solution-content {
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        .solution-intro {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
         }
 
         .solution-benefits {
@@ -305,13 +303,13 @@
             border-left: 4px solid #4CAF50;
         }
 
-        .benefit-title {
+        .benefit-item h4 {
             color: #4CAF50;
             margin-bottom: 10px;
             font-size: 1.1rem;
         }
 
-        .benefit-description {
+        .benefit-item p {
             font-size: 0.95rem;
         }
 
@@ -326,7 +324,7 @@
             margin-bottom: 10px;
         }
 
-        .stat-description {
+        .stat-item p {
             font-weight: 500;
         }
 
@@ -341,14 +339,23 @@
             margin-bottom: 20px;
         }
 
-        .feature-title {
+        .feature-card h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: #1a1a1a;
+            color: white;
         }
 
-        .feature-description {
+        .feature-card p {
             line-height: 1.6;
+        }
+
+        /* Applications */
+        .applications-subtitle {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Testimonials */
@@ -356,7 +363,7 @@
             padding: 30px;
         }
 
-        .testimonial-text {
+        .testimonial-card p {
             font-style: italic;
             margin-bottom: 20px;
         }
@@ -366,9 +373,81 @@
             font-weight: 600;
         }
 
+        /* Calculator */
+        .calculator {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 60px 0;
+        }
+
+        .calculator-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .calculator-form {
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        .calculate-btn {
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            width: 100%;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .result {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result h4 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
         /* Contact */
         .contact {
-            background: rgba(102, 126, 234, 0.03);
+            background: rgba(102, 126, 234, 0.05);
             padding: 60px 0;
         }
 
@@ -378,65 +457,16 @@
             text-align: center;
         }
 
-        .contact-intro {
-            margin-bottom: 40px;
-            font-size: 1.2rem;
-        }
-
-        .pricing-card {
-            padding: 40px;
-        }
-
-        .pricing-header {
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-
-        .pricing-amount {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin: 20px 0 10px;
-        }
-
-        .pricing-period {
-            font-size: 1.2rem;
-            color: #666666;
-            margin-bottom: 10px;
-        }
-
-        .pricing-vat {
-            font-size: 0.9rem;
-            color: #999999;
-            margin-bottom: 30px;
-        }
-
-        .pricing-description {
-            margin-bottom: 30px;
-            color: #333333;
-        }
-
         .contact-form {
             max-width: 500px;
             margin: 0 auto;
         }
 
-        .pricing-features {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .pricing-features-text {
-            color: #666666;
-            font-size: 0.9rem;
-        }
-
         /* Footer */
         footer {
             padding: 60px 0 30px;
-            background: #f8f9fa;
-            border-top: 1px solid #e0e0e0;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
@@ -452,21 +482,21 @@
         }
 
         .footer-section p, .footer-section a {
-            color: #666666;
+            color: #b0b0b0;
             text-decoration: none;
             margin-bottom: 10px;
             display: block;
         }
 
         .footer-section a:hover {
-            color: #1a1a1a;
+            color: white;
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid #e0e0e0;
-            color: #999999;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
         }
 
         /* Responsive */
@@ -481,10 +511,12 @@
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2rem; }
             
-            .grid-auto-large {
+            .grid-auto-large,
+            .grid-auto-xlarge {
                 grid-template-columns: 1fr;
             }
             
+            /* Header mobile */
             .nav-button {
                 padding: 8px 16px;
                 font-size: 0.9rem;
@@ -492,10 +524,6 @@
             
             .logo {
                 font-size: 24px;
-            }
-
-            .pricing-amount {
-                font-size: 2.5rem;
             }
         }
 
@@ -555,16 +583,16 @@
             
             <h1>Stop <span class="hero-highlight gradient-text-primary">au téléphone</span> pendant le service</h1>
             
-            <p class="hero-description text-light">TAKEO gère automatiquement 100% de vos appels : commandes, réservations, informations.<br />
+            <p class="text-light">TAKEO gère automatiquement 100% de vos appels : commandes, réservations, informations.<br />
             <strong>Concentrez-vous enfin sur votre cuisine et vos clients en salle !</strong></p>
             
             <div class="pain-points">
                 <h3>🔥 Stop aux interruptions qui cassent votre service :</h3>
-                <ul class="pain-points-list">
-                    <li class="pain-points-item">Téléphone qui sonne en plein coup de feu</li>
-                    <li class="pain-points-item">Obligation d'arrêter de cuisiner pour répondre</li>
-                    <li class="pain-points-item">Clients en salle qui attendent pendant une prise de commande</li>
-                    <li class="pain-points-item">Stress permanent de rater des appels</li>
+                <ul>
+                    <li>Téléphone qui sonne en plein coup de feu</li>
+                    <li>Obligation d'arrêter de cuisiner pour répondre</li>
+                    <li>Clients en salle qui attendent pendant une prise de commande</li>
+                    <li>Stress permanent de rater des appels</li>
                 </ul>
             </div>
 
@@ -573,7 +601,7 @@
             </div>
             
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary gradient-primary">🚀 Commencer à 59€/mois</a>
+                <a href="#contact" class="btn btn-primary gradient-primary">🚀 Je veux ma liberté</a>
             </div>
         </div>
     </section>
@@ -582,29 +610,29 @@
         <div class="container">
             <div class="solution-content">
                 <h2 class="gradient-text-success">🌟 Votre nouvelle réalité</h2>
-                <p class="solution-intro text-light">
+                <p style="font-size: 1.2rem; margin-bottom: 40px;" class="text-light">
                     Imaginez un service où vous n'êtes <strong>JAMAIS</strong> interrompu par le téléphone
                 </p>
 
                 <div class="solution-benefits grid grid-auto">
                     <div class="benefit-item card">
-                        <h4 class="benefit-title">🍳 Cuisine en continu</h4>
-                        <p class="benefit-description text-light">Plus d'interruption en pleine préparation. Vos plats sortent à l'heure, vos clients sont satisfaits.</p>
+                        <h4>🍳 Cuisine en continu</h4>
+                        <p class="text-light">Plus d'interruption en pleine préparation. Vos plats sortent à l'heure, vos clients sont satisfaits.</p>
                     </div>
                     
                     <div class="benefit-item card">
-                        <h4 class="benefit-title">👥 Service en salle premium</h4>
-                        <p class="benefit-description text-light">Votre équipe se consacre 100% à l'accueil et au service. Fini les clients qui attendent.</p>
+                        <h4>👥 Service en salle premium</h4>
+                        <p class="text-light">Votre équipe se consacre 100% à l'accueil et au service. Fini les clients qui attendent.</p>
                     </div>
                     
                     <div class="benefit-item card">
-                        <h4 class="benefit-title">😌 Sérénité totale</h4>
-                        <p class="benefit-description text-light">Travaillez l'esprit tranquille. Chaque appel est traité parfaitement, même aux heures de pointe.</p>
+                        <h4>😌 Sérénité totale</h4>
+                        <p class="text-light">Travaillez l'esprit tranquille. Chaque appel est traité parfaitement, même aux heures de pointe.</p>
                     </div>
                     
                     <div class="benefit-item card">
-                        <h4 class="benefit-title">💰 Zéro perte de CA</h4>
-                        <p class="benefit-description text-light">Toutes les commandes sont prises, même quand vous êtes débordé. Votre chiffre d'affaires explose.</p>
+                        <h4>💰 Zéro perte de CA</h4>
+                        <p class="text-light">Toutes les commandes sont prises, même quand vous êtes débordé. Votre chiffre d'affaires explose.</p>
                     </div>
                 </div>
             </div>
@@ -616,19 +644,63 @@
             <div class="stats-grid grid grid-auto">
                 <div class="stat-item animate-on-scroll">
                     <h3 class="gradient-text-primary">0</h3>
-                    <p class="stat-description text-muted">Interruption de service</p>
+                    <p class="text-muted">Interruption de service</p>
                 </div>
                 <div class="stat-item animate-on-scroll">
                     <h3 class="gradient-text-primary">24/7</h3>
-                    <p class="stat-description text-muted">Prise d'appels automatique</p>
+                    <p class="text-muted">Prise d'appels automatique</p>
                 </div>
                 <div class="stat-item animate-on-scroll">
                     <h3 class="gradient-text-primary">∞</h3>
-                    <p class="stat-description text-muted">Appels simultanés</p>
+                    <p class="text-muted">Appels simultanés</p>
                 </div>
                 <div class="stat-item animate-on-scroll">
                     <h3 class="gradient-text-primary">+25%</h3>
-                    <p class="stat-description text-muted">Chiffre d'affaires</p>
+                    <p class="text-muted">Chiffre d'affaires</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="applications" id="applications">
+        <div class="container">
+            <h2>TAKEO gère tout automatiquement</h2>
+            <p class="applications-subtitle text-muted">
+                Votre agent vocal intelligent s'occupe de tous vos appels pendant que vous vous concentrez sur l'essentiel
+            </p>
+            
+            <div class="grid grid-auto-xlarge">
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">🛒</div>
+                    <h3>Commandes automatisées</h3>
+                    <div style="text-align: left; line-height: 1.8;" class="text-light">
+                        • <strong>Call & Collect</strong> : Prise de commande et retrait<br>
+                        • <strong>Vente additionnelle</strong> : Suggestions automatiques<br>
+                        • <strong>Conseils personnalisés</strong> : Recommandations selon les préférences<br>
+                        • <strong>Paiement immédiat</strong> : Liens sécurisés par SMS
+                    </div>
+                </div>
+
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">📋</div>
+                    <h3>Réservations intelligentes</h3>
+                    <div style="text-align: left; line-height: 1.8;" class="text-light">
+                        • <strong>Réservations de tables</strong> : Gestion complète du planning<br>
+                        • <strong>Événements privés</strong> : Anniversaires, groupes<br>
+                        • <strong>Confirmations automatiques</strong> : SMS et emails<br>
+                        • <strong>Modifications</strong> : Annulations et reports gérés
+                    </div>
+                </div>
+
+                <div class="feature-card card animate-on-scroll">
+                    <div class="feature-icon gradient-text-primary">ℹ️</div>
+                    <h3>Informations & Support</h3>
+                    <div style="text-align: left; line-height: 1.8;" class="text-light">
+                        • <strong>Informations pratiques</strong> : Horaires, adresse, itinéraire<br>
+                        • <strong>Carte détaillée</strong> : Plats, allergènes, prix<br>
+                        • <strong>Menus du jour</strong> : Suggestions et promotions<br>
+                        • <strong>Expertise complète</strong> : Tous vos services
+                    </div>
                 </div>
             </div>
         </div>
@@ -640,38 +712,38 @@
             <div class="grid grid-auto-large">
                 <div class="feature-card card animate-on-scroll">
                     <div class="feature-icon gradient-text-primary">🧠</div>
-                    <h3 class="feature-title">Intelligence totale</h3>
-                    <p class="feature-description text-muted">Comprend parfaitement votre carte, explique les plats, gère les modifications. Plus intelligent qu'un serveur.</p>
+                    <h3>Intelligence totale</h3>
+                    <p class="text-muted">Comprend parfaitement votre carte, explique les plats, gère les modifications. Plus intelligent qu'un serveur.</p>
                 </div>
 
                 <div class="feature-card card animate-on-scroll">
                     <div class="feature-icon gradient-text-primary">🌐</div>
-                    <h3 class="feature-title">Multilingue natif</h3>
-                    <p class="feature-description text-muted">Parle parfaitement français, anglais, italien... Vos clients étrangers sont choyés comme jamais.</p>
+                    <h3>Multilingue natif</h3>
+                    <p class="text-muted">Parle parfaitement français, anglais, italien... Vos clients étrangers sont choyés comme jamais.</p>
                 </div>
 
                 <div class="feature-card card animate-on-scroll">
                     <div class="feature-icon gradient-text-primary">⚡</div>
-                    <h3 class="feature-title">Capacité illimitée</h3>
-                    <p class="feature-description text-muted">Traite 1000 appels simultanés sans broncher. Fini les lignes occupées, même pendant les pics.</p>
+                    <h3>Capacité illimitée</h3>
+                    <p class="text-muted">Traite 1000 appels simultanés sans broncher. Fini les lignes occupées, même pendant les pics.</p>
                 </div>
 
                 <div class="feature-card card animate-on-scroll">
                     <div class="feature-icon gradient-text-primary">🔗</div>
-                    <h3 class="feature-title">Intégration magique</h3>
-                    <p class="feature-description text-muted">Se connecte à votre caisse et planning. Les commandes arrivent directement, prêtes à être préparées.</p>
+                    <h3>Intégration magique</h3>
+                    <p class="text-muted">Se connecte à votre caisse et planning. Les commandes arrivent directement, prêtes à être préparées.</p>
                 </div>
 
                 <div class="feature-card card animate-on-scroll">
                     <div class="feature-icon gradient-text-primary">💳</div>
-                    <h3 class="feature-title">Paiement anticipé</h3>
-                    <p class="feature-description text-muted">Envoie automatiquement les liens de paiement par SMS. Vos commandes sont payées avant même d'être préparées.</p>
+                    <h3>Paiement anticipé</h3>
+                    <p class="text-muted">Envoie automatiquement les liens de paiement par SMS. Vos commandes sont payées avant même d'être préparées.</p>
                 </div>
 
                 <div class="feature-card card animate-on-scroll">
                     <div class="feature-icon gradient-text-primary">🛡️</div>
-                    <h3 class="feature-title">Fiabilité absolue</h3>
-                    <p class="feature-description text-muted">Ne tombe jamais malade, ne prend jamais de congés, ne fait jamais d'erreurs. Votre service parfait 365j/an.</p>
+                    <h3>Fiabilité absolue</h3>
+                    <p class="text-muted">Ne tombe jamais malade, ne prend jamais de congés, ne fait jamais d'erreurs. Votre service parfait 365j/an.</p>
                 </div>
             </div>
         </div>
@@ -682,12 +754,12 @@
             <h2>Ils ont retrouvé leur liberté</h2>
             <div class="grid grid-auto-large">
                 <div class="testimonial-card card animate-on-scroll">
-                    <p class="testimonial-text text-light">"Plus jamais je ne décroche le téléphone pendant le service ! Mes équipes se concentrent enfin sur la cuisine et l'accueil. Le stress a complètement disparu."</p>
+                    <p class="text-light">"Plus jamais je ne décroche le téléphone pendant le service ! Mes équipes se concentrent enfin sur la cuisine et l'accueil. Le stress a complètement disparu."</p>
                     <div class="testimonial-author">— Le KotoKoto, Annecy</div>
                 </div>
                 
                 <div class="testimonial-card card animate-on-scroll">
-                    <p class="testimonial-text text-light">"TAKEO comprend mieux nos spécialités japonaises que nos serveurs ! Et surtout, nous ne ratons plus aucune commande aux heures de pointe."</p>
+                    <p class="text-light">"TAKEO comprend mieux nos spécialités japonaises que nos serveurs ! Et surtout, nous ne ratons plus aucune commande aux heures de pointe."</p>
                     <div class="testimonial-author">— Yatta Ramen</div>
                 </div>
             </div>
@@ -697,26 +769,24 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-content">
-                <h2>Commencez dès maintenant</h2>
-                <p class="contact-intro text-muted">
+                <h2>Récupérez votre liberté dès maintenant</h2>
+                <p class="text-muted" style="margin-bottom: 40px; font-size: 1.2rem;">
                     <strong>Installation en 48h • Formation incluse • Support 24/7</strong><br>
                     Nos experts configurent TAKEO selon vos besoins. Plus jamais d'interruption téléphonique.
                 </p>
                 
                 <div class="card">
-                    <div class="pricing-card">
-                        <h3 class="pricing-header">💎 Tarif professionnel</h3>
-                        <div class="pricing-amount">59€</div>
-                        <div class="pricing-period">HT / mois</div>
-                        <div class="pricing-vat">(70,80€ TTC)</div>
+                    <div style="padding: 40px;">
+                        <h3 style="color: #667eea; margin-bottom: 20px;">📝 Obtenez votre devis personnalisé</h3>
+                        <p style="margin-bottom: 30px;">Remplissez le formulaire ci-dessous et recevez une proposition sur mesure sous 24h. Zéro engagement.</p>
                         
                         <div class="contact-form">
                             <iframe data-tally-src="https://tally.so/embed/m6qoy5?alignLeft=1&transparentBackground=1&hideTitle=1&dynamicHeight=1" loading="lazy" width="100%" height="482" frameborder="0" marginheight="0" marginwidth="0" title="null"></iframe>
                             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
                         </div>
 
-                        <div class="pricing-features">
-                            <p class="pricing-features-text">
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <p style="color: #888; font-size: 0.9rem;">
                                 ✅ <strong>Installation personnalisée</strong> : Configuration sur mesure<br>
                                 ✅ <strong>Formation complète</strong> : Votre équipe maîtrise tout<br>
                                 ✅ <strong>Support premium</strong> : Assistance 9h-18h + urgences 24/7
@@ -739,7 +809,7 @@
                 <div class="footer-section">
                     <h3>Solution</h3>
                     <a href="#features">Comment ça marche</a>
-                    <a href="#contact">Pricing</a>
+                    <a href="#calculator">Calculateur</a>
                 </div>
                 
                 <div class="footer-section">
